@@ -42,7 +42,3 @@ When converting between currencies, you must adhere to the following rules:
 - Currency conversion does not require an exact date match, but you must use a currency conversion rate less than or equal to the purchase date from within the last 6 months.
 - If no currency conversion rate is available within 6 months equal to or before the purchase date, an error should be returned, stating that the purchase cannot be converted to the target currency.
 - The converted purchase amount to the target currency should be rounded to two decimal places (i.e., cent).
-
-## Getting Started
-
-Please follow the instructions provided to set up and run this Purchase Transaction System. Ensure that you meet the specified requirements to store and retrieve purchase transactions successfully.
