@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "6196f712-b0ae-4eb4-958b-7cbd55520caf",
+		"name": "Wex Test Interview",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27610596"
+	},
+	"item": [
+		{
+			"name": "Save a Purchase Transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"transactionDate\" : \"2023-12-12\",\n    \"description\" : \"Test Description\",\n    \"purchaseAmount\": 10.4575\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/purchase-transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"purchase-transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Converted",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/purchase-transaction/1/converted?targetCountryCurrency=Australia-Dollar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"purchase-transaction",
+						"1",
+						"converted"
+					],
+					"query": [
+						{
+							"key": "targetCountryCurrency",
+							"value": "Australia-Dollar"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
