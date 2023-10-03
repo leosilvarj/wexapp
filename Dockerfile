@@ -2,11 +2,9 @@ FROM amd64/gradle:jdk-alpine AS builder
 
 WORKDIR /app
 
-COPY ../build.gradle .
+COPY ../build.gradle ../settings.gradle /app/
 
-COPY ../settings.gradle .
-
-COPY src ./src/
+COPY ./src /app/src
 
 RUN gradle build --stacktrace -Pprod -x test
 
