@@ -3,6 +3,7 @@ package br.com.wexapplication.wexapp.dto;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,6 +25,7 @@ public class PurchaseTransactionRequest {
 
     @NotNull(message = "Field purchaseAmount must be filled.")
     @Digits(integer = 10, message = "Purchase amount must be rounded to the nearest cent.", fraction = 9)
+    @Positive(message = "Purchase amount must be a positive value.")
     private BigDecimal purchaseAmount;
 
 }

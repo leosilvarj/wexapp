@@ -92,6 +92,21 @@ public class PurchaseTransactionCtrlTest {
         assertEquals("Field description must not exceed 50 characters.", response.getBody().get(0));
     }
 
+    @Test
+    public void testSaveTransactionWithNegativeAmount() {
+        PurchaseTransactionRequest request = PurchaseTransactionRequest
+                .builder()
+                .transactionDate(LocalDate.now())
+                .purchaseAmount(new BigDecimal("-10"))
+                .description("Test Description")
+                .build();
+
+        ResponseEntity<ArrayList> response = restTemplate.postForEntity("http://localhost:"+port+"/api/purchase-transaction", request, ArrayList.class);
+
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        assertEquals("Purchase amount must be a positive value.", response.getBody().get(0));
+    }
+
 
     @Test
     public void testRetrieveConvertedPurchaseTransaction() {
