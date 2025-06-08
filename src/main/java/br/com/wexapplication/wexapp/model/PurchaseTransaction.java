@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -29,6 +30,7 @@ public class PurchaseTransaction {
     @Column(name = "purchase_amount", nullable = false)
     @NotNull(message = "Purchase amount must be a valid amount.")
     @Digits(integer = 10, message = "Purchase amount must be rounded to the nearest cent.", fraction = 9)
+    @Positive(message = "Purchase amount must be a positive value.")
     private BigDecimal purchaseAmount;
 
 
